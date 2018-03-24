@@ -1,0 +1,102 @@
+.data
+:X
+.float 1.0
+.float 2.0
+.float 3.0
+.float 4.0
+.float 5.0
+.float 6.0
+.float 7.0
+.float 8.0
+.float 9.0
+.float 10.0
+.space 360
+
+:K
+.float 1.0
+
+.text
+
+/* r2 = addr of K, r1 = addr X */ 
+ori r2,r0,K
+ori r1,r0,X
+nop
+nop
+nop
+;;
+
+ori r3,r0,100
+nop
+nop
+nop
+nop
+;;
+
+nop
+lf f0,0(r2)
+nop
+nop
+nop
+;;
+
+/* start of loop */
+:loop
+nop
+lf f1,0(r1)
+nop
+nop
+nop
+;;
+
+nop 
+nop
+nop
+nop
+nop
+;;
+
+nop
+nop
+nop
+nop
+nop;;
+
+nop
+nop
+nop
+addf f1,f1,f0
+nop
+;;
+
+subui r3,r3,1
+nop
+nop
+nop
+nop;;
+
+nop 
+addui r1,r1,4
+nop
+nop
+nop;;
+
+bnez r3, loop
+nop
+nop
+nop
+nop;;
+
+/* Delay slot */
+nop 
+nop 
+sf 0(r1),f1
+nop
+nop ;;
+
+:endlabel
+trap
+nop
+nop
+nop
+nop
+;;

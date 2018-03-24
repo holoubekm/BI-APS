@@ -1,0 +1,6 @@
+﻿  main.cpp
+c:\users\martin\desktop\bi-aps\gauss_win\main.cpp(40): warning C4101: 'z': unreferenced local variable
+c:\users\martin\desktop\bi-aps\gauss_win\main.cpp(41): warning C4101: 'tmp': unreferenced local variable
+c:\users\martin\desktop\bi-aps\gauss_win\main.cpp(40): warning C4101: 'y': unreferenced local variable
+c:\users\martin\desktop\bi-aps\gauss_win\main.cpp(40): warning C4101: 'x': unreferenced local variable
+  gauss_win.vcxproj -> C:\Users\Martin\Desktop\BI-APS\gauss_win\Debug\gauss_win.exe

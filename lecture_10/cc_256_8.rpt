@@ -1,0 +1,52 @@
+---Dinero IV cache simulator, version 7
+---Written by Jan Edler and Mark D. Hill
+---Copyright (C) 1997 NEC Research Institute, Inc. and Mark D. Hill.
+---All rights reserved.
+---Copyright (C) 1985, 1989 Mark D. Hill.  All rights reserved.
+---See -copyright option for details
+
+---Summary of options (-help option gives usage information).
+
+-l1-usize 262144
+-l1-ubsize 128
+-l1-usbsize 128
+-l1-uassoc 8
+-l1-urepl l
+-l1-ufetch d
+-l1-uwalloc a
+-l1-uwback a
+-l1-uccc
+-skipcount 0
+-flushcount 0
+-maxcount 0
+-stat-interval 0
+-informat d
+-on-trigger 0x0
+-off-trigger 0x0
+
+---Simulation begins.
+---Simulation complete.
+l1-ucache
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		    10000020	     7573410	     2426610	     1596310	      830300	           0
+  Fraction of total	      1.0000	      0.7573	      0.2427	      0.1596	      0.0830	      0.0000
+
+ Demand Misses		       17194	       12880	        4314	        2293	        2021	           0
+  Demand miss rate	      0.0017	      0.0017	      0.0018	      0.0014	      0.0024	      0.0000
+   Compulsory misses	        2461	        1772	         689	         388	         301	           0
+   Capacity misses	       13430	       10438	        2992	        1430	        1562	           0
+   Conflict misses	        1303	         670	         633	         475	         158	           0
+   Compulsory fraction	      0.1431	      0.1376	      0.1597	      0.1692	      0.1489	      0.0000
+   Capacity fraction	      0.7811	      0.8104	      0.6936	      0.6236	      0.7729	      0.0000
+   Conflict fraction	      0.0758	      0.0520	      0.1467	      0.2072	      0.0782	      0.0000
+
+ Multi-block refs                 0
+ Bytes From Memory	     2200832
+ ( / Demand Fetches)	      0.2201
+ Bytes To Memory	      289664
+ ( / Demand Writes)	      0.3489
+ Total Bytes r/w Mem	     2490496
+ ( / Demand Fetches)	      0.2490
+
+---Execution complete.

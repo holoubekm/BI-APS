@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="1.0">
+
+  <xs:element name="Configuration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="segments" type="segmentsType" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="forwarding" minOccurs="0" maxOccurs="1">
+          <xs:complexType>
+            <xs:attribute name="enabled" type="xs:boolean" default="true"/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="fpUnits" type="fpUnitsType" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="registry" type="registryType" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="memory" type="memoryType" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="classification" type="classificationType" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:complexType name="segmentsType">
+    <xs:sequence>
+      <xs:element name="codeSegment" type="segmentConfig" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="dataSegment" type="segmentConfig" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="segmentConfig">
+    <xs:attribute name="beginAddress" type="xs:string" use="required"/>
+  </xs:complexType>
+  
+  <xs:complexType name="fpUnitsType">
+    <xs:sequence>
+      <xs:element name="fadd" type="fpUnitConfig" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="fmul" type="fpUnitConfig" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="fdiv" type="fpUnitConfig" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="fpUnitConfig">
+    <xs:attribute name="count" type="xs:integer"/>
+    <xs:attribute name="delay" type="xs:integer"/>
+  </xs:complexType>
+  
+  <xs:complexType name="registryType">
+    <xs:sequence>
+      <xs:element name="register" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="name" type="xs:string" use="required"/>
+          <xs:attribute name="access" type="registerAccessType" default="unlimited"/>
+          <xs:attribute name="initialValue" type="xs:double"/>
+          <xs:attribute name="requiredResult" type="xs:double"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:simpleType name="registerAccessType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="unlimited"/>
+      <xs:enumeration value="saveFirst"/>
+      <xs:enumeration value="forbidden"/>  
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="memoryType">
+    <xs:sequence>
+      <xs:element name="block" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+          	<xs:element name="initialValues" type="memoryValuesType" minOccurs="0" maxOccurs="1"/>
+          	<xs:element name="requiredResults" type="memoryValuesType" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+          <xs:attribute name="address" type="xs:integer" use="required"/>
+          <xs:attribute name="label" type="xs:string"/>
+          <xs:attribute name="allocateBytes" type="xs:integer"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="memoryValuesType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="dataType" type="valuesDataType" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="valuesDataType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="floats"/>
+      <xs:enumeration value="doubles"/>
+      <xs:enumeration value="integers"/>  
+      <xs:enumeration value="bytes"/>  
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="classificationType">
+    <xs:sequence>
+      <xs:element name="milestone" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="maxCycles" type="xs:integer" use="required"/>
+          <xs:attribute name="successRate" type="xs:float" default="0"/>
+          <xs:attribute name="kill" type="xs:boolean" default="false"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+</xs:schema>

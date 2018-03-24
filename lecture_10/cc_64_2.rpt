@@ -1,0 +1,52 @@
+---Dinero IV cache simulator, version 7
+---Written by Jan Edler and Mark D. Hill
+---Copyright (C) 1997 NEC Research Institute, Inc. and Mark D. Hill.
+---All rights reserved.
+---Copyright (C) 1985, 1989 Mark D. Hill.  All rights reserved.
+---See -copyright option for details
+
+---Summary of options (-help option gives usage information).
+
+-l1-usize 65536
+-l1-ubsize 128
+-l1-usbsize 128
+-l1-uassoc 2
+-l1-urepl l
+-l1-ufetch d
+-l1-uwalloc a
+-l1-uwback a
+-l1-uccc
+-skipcount 0
+-flushcount 0
+-maxcount 0
+-stat-interval 0
+-informat d
+-on-trigger 0x0
+-off-trigger 0x0
+
+---Simulation begins.
+---Simulation complete.
+l1-ucache
+ Metrics		      Total	      Instrn	       Data	       Read	      Write	       Misc
+ -----------------	      ------	      ------	      ------	      ------	      ------	      ------
+ Demand Fetches		    10000020	     7573410	     2426610	     1596310	      830300	           0
+  Fraction of total	      1.0000	      0.7573	      0.2427	      0.1596	      0.0830	      0.0000
+
+ Demand Misses		       62820	       40666	       22154	       17647	        4507	           0
+  Demand miss rate	      0.0063	      0.0054	      0.0091	      0.0111	      0.0054	      0.0000
+   Compulsory misses	        2461	        1772	         689	         388	         301	           0
+   Capacity misses	       31569	       22217	        9352	        6075	        3277	           0
+   Conflict misses	       28790	       16677	       12113	       11184	         929	           0
+   Compulsory fraction	      0.0392	      0.0436	      0.0311	      0.0220	      0.0668	      0.0000
+   Capacity fraction	      0.5025	      0.5463	      0.4221	      0.3443	      0.7271	      0.0000
+   Conflict fraction	      0.4583	      0.4101	      0.5468	      0.6338	      0.2061	      0.0000
+
+ Multi-block refs                 0
+ Bytes From Memory	     8040960
+ ( / Demand Fetches)	      0.8041
+ Bytes To Memory	      939008
+ ( / Demand Writes)	      1.1309
+ Total Bytes r/w Mem	     8979968
+ ( / Demand Fetches)	      0.8980
+
+---Execution complete.

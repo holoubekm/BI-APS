@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Configuration>
+
+  <segments>
+    <codeSegment beginAddress="0x100" />
+    <dataSegment beginAddress="0x2000" />
+  </segments>
+
+  <forwarding enabled="true"/>
+
+  <fpUnits>
+    <fadd count="4" delay="5"/>
+    <fmul count="4" delay="4"/>
+    <fdiv count="1" delay="19"/>
+  </fpUnits>
+
+  <registry>
+    <register name="r4" access="saveFirst" />
+    <register name="r5" access="saveFirst" />
+    <register name="r6" access="saveFirst" />
+    <register name="r7" access="saveFirst" />
+    <register name="r16" access="saveFirst" />
+    <register name="r17" access="saveFirst" />
+    <register name="r18" access="saveFirst" />
+    <register name="r19" access="saveFirst" />
+    <register name="r20" access="saveFirst" />
+    <register name="r21" access="saveFirst" />
+    <register name="r22" access="saveFirst" />
+    <register name="r23" access="saveFirst" />
+    <register name="r26" access="forbidden" />
+    <register name="r27" access="forbidden" />
+    <register name="r28" access="forbidden" />
+    <register name="r30" access="saveFirst" />
+    <register name="r31" access="unlimited" />
+    <register name="f2" access="saveFirst" />
+    <register name="f3" access="saveFirst" />
+    <register name="f4" access="saveFirst" />
+    <register name="f5" access="saveFirst" />
+    <register name="f6" access="saveFirst" />
+    <register name="f7" access="saveFirst" />
+    <register name="f8" access="saveFirst" />
+    <register name="f9" access="saveFirst" />
+    <register name="f10" access="saveFirst" />
+    <register name="f11" access="saveFirst" />
+    <register name="f12" access="saveFirst" />
+    <register name="f13" access="saveFirst" />
+    <register name="f14" access="saveFirst" />
+    <register name="f15" access="saveFirst" />
+    <register name="f16" access="saveFirst" />
+    <register name="f18" access="saveFirst" />
+    <register name="f19" access="saveFirst" />
+    <register name="f20" access="saveFirst" />
+    <register name="f21" access="saveFirst" />
+    <register name="f22" access="saveFirst" />
+    <register name="f23" access="saveFirst" />
+    <register name="f24" access="saveFirst" />
+    <register name="f25" access="saveFirst" />
+    <register name="f26" access="saveFirst" />
+    <register name="f27" access="saveFirst" />
+    <register name="f28" access="saveFirst" />
+    <register name="f29" access="saveFirst" />
+    <register name="f30" access="saveFirst" />
+    <register name="f31" access="saveFirst" />
+  </registry>
+
+  <memory>
+    <block address="16380" label="_size" allocateBytes="4">
+	<initialValues dataType="integers">9</initialValues>
+    </block>
+    <block address="16384" label="_numbers" allocateBytes="360">
+      <initialValues dataType="floats">10,1,10,5,4,10,1,2,2,8,3.333333492279053,6.333333492279053,12.333333969116211,11.666666984558105,10.333333015441895,8.333333969116211,6.333333492279053,4.666666507720947,9.666666984558105,11.666666984558105,-31.666667938232422,-15.166666984558105,-41.666667938232422,-29.833333969116211,-23.666666030883789,-34.666667938232422,-9.166666984558105,-8.333333015441895,-22.333333969116211,-42.333335876464844,101.666671752929688,76.166671752929688,176.666671752929688,145.833343505859375,122.666664123535156,143.666671752929688,60.166667938232422,52.333332061767578,123.333335876464844,180.333343505859375,-75.666671752929688,-62.766670227050781,-138.466674804687500,-117.833343505859375,-97.566665649414062,-109.166671752929688,-47.766666412353516,-40.933334350585938,-98.933334350585938,-137.833343505859375,-433.888916015625000,-291.588897705078125,-698.188903808593750,-558.611145019531250,-461.355529785156250,-566.222229003906250,-205.588897705078125,-183.244430541992188,-448.077819824218750,-698.911132812500000,327.571472167968750,218.002868652343750,522.754333496093750,417.500030517578125,345.261413574218750,426.521423339843750,162.845718383789062,144.168563842773438,341.797180175781250,534.775756835937500,-995.551696777343750,-696.635192871093750,-1646.447753906250000,-1333.180664062500000,-1106.230957031250000,-1332.913574218750000,-504.806579589843750,-438.754119873046875,-1081.473266601562500,-1646.599487304687500,-1129.992187500000000,-755.216369628906250,-1814.727416992187500,-1450.472412109375000,-1200.698608398437500,-1478.358642578125000,-564.178283691406250,-500.181213378906250,-1177.000488281250000,-1834.752807617187500
+      </initialValues>
+    </block>
+    <block address="16384" label="_numbers" allocateBytes="0">
+      <requiredResults dataType="floats">10,1,10,5,4,10,1,2,2,8,0,6,9,10,9,5.000000476837158,6,3.999999761581421,9,9,0,0,8,6,7.000000953674316,7.000000953674316,6,6,2,0.999998092651367,0,0,0,3.000005722045898,4.000001907348633,7.999998092651367,1.999998092651367,6.000003814697266,9.999994277954102,2.999995231628418,0,0,0,0,2,2.999988555908203,1.999998092651367,1.999992370605469,3.999975204467773,5.999994277954102,0,0,0,0,0,0.999974250793457,8.999940872192383,3.999986648559570,9.999916076660156,9.999940872192383,0,0,0,0,0,0,9.999965667724609,7.000022888183594,5.000059127807617,7.999963760375977,0,0,0,0,0,0,0,7.999759674072266,2.000415802001953,2.999969482421875,0,0,0,0,0,0,0,0,3.999383449554443,8.999110221862793
+      </requiredResults>
+    </block>
+  </memory>
+
+  <classification>
+    <milestone maxCycles="4500" successRate="1.0"/>
+    <milestone maxCycles="5000" successRate="0.83333"/>
+    <milestone maxCycles="5500" successRate="0.66666"/>
+    <milestone maxCycles="6500" successRate="0.5"/>
+    <milestone maxCycles="7500" successRate="0.33333"/>
+    <milestone maxCycles="15000" successRate="0.16666" kill="true"/>
+  </classification>
+
+</Configuration>

@@ -1,0 +1,301 @@
+.data
+:X
+.float 1.0
+.float 2.0
+.float 3.0
+.float 4.0
+.float 5.0
+.float 6.0
+.float 7.0
+.float 8.0
+.float 9.0
+.float 10.0
+.float 1.0
+.float 2.0
+.float 3.0
+.float 4.0
+.float 5.0
+.float 6.0
+.float 7.0
+.float 8.0
+.float 9.0
+.float 10.0
+.float 1.0
+.float 2.0
+.float 3.0
+.float 4.0
+.float 5.0
+.float 6.0
+.float 7.0
+.float 8.0
+.float 9.0
+.float 10.0
+.space 3960
+
+:Y
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.float 1.0
+.space 3960
+
+:A
+.float 5.0
+
+.text
+
+ori r1, r0, A
+ori r2, r0, X
+nop
+nop
+nop;;
+
+ori r1, r0, 1000
+ori r3, r0, Y
+nop
+nop
+nop;;
+
+nop
+lf f20, 0(r1)
+nop
+nop
+nop;;
+
+andi r5, r1, 7
+srli r4, r1, 3
+nop
+nop
+nop;;
+
+nop
+lf f0, 0(r2)
+lf f1, 0(r3)
+nop
+nop;;
+
+beqz r5, NO_MODULO
+nop
+nop
+nop
+nop;;
+
+nop
+nop
+nop
+nop
+nop;;
+
+/* ZBYTEK PO UNROLLINGU - neoptimalizovano pro VLIW */
+:MODULO
+addi r2,r2, 4
+addi r3,r3, 4
+nop
+nop
+multf f0,f0,f20;;
+
+subi r5, r5, 1
+nop
+nop
+nop
+nop;;
+
+nop nop nop nop nop;;
+
+nop nop nop nop nop;;
+
+nop nop nop nop nop;;
+
+nop
+nop
+nop
+addf f0,f1,f0
+nop;;
+
+nop nop nop nop nop;;
+
+nop
+lf f0, 0(r2)
+lf f1, 0(r3)
+nop
+nop;;
+
+bnez r5, MODULO
+nop
+nop
+nop
+nop;;
+
+nop
+nop
+sf -4(r3), f0
+nop
+nop;;
+
+:NO_MODULO
+
+/* MAIN VLIW */
+
+beqz r4, FINISH
+lf f0, 0(r2)
+lf f1, 0(r3)
+nop
+nop;;
+
+nop
+lf f2, 4(r2)
+lf f3, 4(r3)
+nop
+nop;;
+
+nop
+lf f4, 8(r2)
+lf f5, 8(r3)
+nop
+nop;;
+
+/* MAIN UNROLLED LOOP LOGIC */
+:MAIN_LOOP
+
+nop
+lf f6, 12(r2)
+lf f7, 12(r3)
+nop
+multf f0, f0, f20;;
+
+nop
+lf f8, 16(r2)
+lf f9, 16(r3)
+nop
+multf f2, f2, f20;;
+
+nop
+lf f10, 20(r2)
+lf f11, 20(r3)
+nop
+multf f4, f4, f20;;
+
+nop
+lf f12, 24(r2)
+lf f13, 24(r3)
+nop
+multf f6, f6, f20;;
+
+nop
+lf f14, 28(r2)
+lf f15, 28(r3)
+nop
+multf f8, f8, f20;;
+
+nop
+nop
+lf f1, 32(r3)
+addf f0, f0, f1
+multf f10, f10, f20;;
+
+nop
+nop
+lf f3, 36(r3)
+addf f2, f2, f3
+multf f12, f12, f20;;
+
+nop
+lf f0, 32(r2)
+lf f5, 40(r3)
+addf f4, f4, f5
+multf f14, f14, f20;;
+
+nop
+lf f2, 36(r2)
+nop
+addf f6, f6, f7
+nop;;
+
+nop
+lf f4, 40(r2)
+sf 0(r3), f0
+addf f8, f8, f9
+nop;;
+
+nop
+nop
+sf 4(r3), f2
+addf f10, f10, f11
+nop;;
+
+nop
+nop
+sf 8(r3), f4
+addf f12, f12, f13
+nop;;
+
+nop
+nop
+sf 12(r3), f6
+addf f14, f14, f15
+nop;;
+
+nop
+nop
+sf 16(r3), f8
+nop
+nop;;
+
+subi r4, r4, 1
+nop
+sf 20(r3), f10
+nop
+nop;;
+
+addi r2, r2, 32
+addi r3, r3, 32
+sf 24(r3), f12
+nop
+nop;;
+
+bnez r4, MAIN_LOOP
+nop
+sf 28(r3), f14
+nop
+nop;;
+
+nop
+nop
+nop
+nop
+nop;;
+
+/* MAIN LOOP END */
+
+:FINISH
+trap
+nop
+nop
+nop
+nop;;

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Configuration>
+
+  <segments>
+    <codeSegment beginAddress="0x100" />
+    <dataSegment beginAddress="0x2000" />
+  </segments>
+
+  <forwarding enabled="true"/>
+
+  <fpUnits>
+    <fadd count="4" delay="5"/>
+    <fmul count="4" delay="4"/>
+    <fdiv count="1" delay="19"/>
+  </fpUnits>
+
+  <registry>
+    <register name="r4" access="saveFirst" />
+    <register name="r5" access="saveFirst" />
+    <register name="r6" access="saveFirst" />
+    <register name="r7" access="saveFirst" />
+    <register name="r16" access="saveFirst" />
+    <register name="r17" access="saveFirst" />
+    <register name="r18" access="saveFirst" />
+    <register name="r19" access="saveFirst" />
+    <register name="r20" access="saveFirst" />
+    <register name="r21" access="saveFirst" />
+    <register name="r22" access="saveFirst" />
+    <register name="r23" access="saveFirst" />
+    <register name="r26" access="forbidden" />
+    <register name="r27" access="forbidden" />
+    <register name="r28" access="forbidden" />
+    <register name="r30" access="saveFirst" />
+    <register name="r31" access="unlimited" />
+    <register name="f2" access="saveFirst" />
+    <register name="f3" access="saveFirst" />
+    <register name="f4" access="saveFirst" />
+    <register name="f5" access="saveFirst" />
+    <register name="f6" access="saveFirst" />
+    <register name="f7" access="saveFirst" />
+    <register name="f8" access="saveFirst" />
+    <register name="f9" access="saveFirst" />
+    <register name="f10" access="saveFirst" />
+    <register name="f11" access="saveFirst" />
+    <register name="f12" access="saveFirst" />
+    <register name="f13" access="saveFirst" />
+    <register name="f14" access="saveFirst" />
+    <register name="f15" access="saveFirst" />
+    <register name="f16" access="saveFirst" />
+    <register name="f18" access="saveFirst" />
+    <register name="f19" access="saveFirst" />
+    <register name="f20" access="saveFirst" />
+    <register name="f21" access="saveFirst" />
+    <register name="f22" access="saveFirst" />
+    <register name="f23" access="saveFirst" />
+    <register name="f24" access="saveFirst" />
+    <register name="f25" access="saveFirst" />
+    <register name="f26" access="saveFirst" />
+    <register name="f27" access="saveFirst" />
+    <register name="f28" access="saveFirst" />
+    <register name="f29" access="saveFirst" />
+    <register name="f30" access="saveFirst" />
+    <register name="f31" access="saveFirst" />
+  </registry>
+
+  <memory>
+    <block address="16380" label="_size" allocateBytes="4">
+	<initialValues dataType="integers">5</initialValues>
+    </block>
+    <block address="16384" label="_numbers" allocateBytes="120">
+      <initialValues dataType="floats">5,4,6,10,9,10,-45,-35,-45,-85,-74,-89,15,12,27,40,28,40,73.833328247070312,57.666667938232422,85,159.666656494140625,125.099998474121094,157.266662597656250,93.833328247070312,72.666671752929688,94,187.999984741210938,154.433334350585938,190.599990844726562
+      </initialValues>
+    </block>
+    <block address="16384" label="_numbers" allocateBytes="0">
+      <requiredResults dataType="floats">5,4,6,10,9,10,0,1,9,5,7,1,0,0,9,10,1,10,0,0,0,9.000020027160645,0.999966919422150,1.000050544738770,0,0,0,0,1.000002861022949,1.000003099441528
+      </requiredResults>
+    </block>
+  </memory>
+
+  <classification>
+    <milestone maxCycles="4500" successRate="1.0"/>
+    <milestone maxCycles="5000" successRate="0.83333"/>
+    <milestone maxCycles="5500" successRate="0.66666"/>
+    <milestone maxCycles="6500" successRate="0.5"/>
+    <milestone maxCycles="7500" successRate="0.33333"/>
+    <milestone maxCycles="15000" successRate="0.16666" kill="true"/>
+  </classification>
+
+</Configuration>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Configuration>
+
+  <segments>
+    <codeSegment beginAddress="0x100" />
+    <dataSegment beginAddress="0x2000" />
+  </segments>
+
+  <forwarding enabled="true"/>
+
+  <fpUnits>
+    <fadd count="4" delay="5"/>
+    <fmul count="4" delay="4"/>
+    <fdiv count="1" delay="19"/>
+  </fpUnits>
+
+  <registry>
+    <register name="r4" access="saveFirst" />
+    <register name="r5" access="saveFirst" />
+    <register name="r6" access="saveFirst" />
+    <register name="r7" access="saveFirst" />
+    <register name="r16" access="saveFirst" />
+    <register name="r17" access="saveFirst" />
+    <register name="r18" access="saveFirst" />
+    <register name="r19" access="saveFirst" />
+    <register name="r20" access="saveFirst" />
+    <register name="r21" access="saveFirst" />
+    <register name="r22" access="saveFirst" />
+    <register name="r23" access="saveFirst" />
+    <register name="r26" access="forbidden" />
+    <register name="r27" access="forbidden" />
+    <register name="r28" access="forbidden" />
+    <register name="r30" access="saveFirst" />
+    <register name="r31" access="saveFirst" />
+    <register name="f2" access="saveFirst" />
+    <register name="f3" access="saveFirst" />
+    <register name="f4" access="saveFirst" />
+    <register name="f5" access="saveFirst" />
+    <register name="f6" access="saveFirst" />
+    <register name="f7" access="saveFirst" />
+    <register name="f8" access="saveFirst" />
+    <register name="f9" access="saveFirst" />
+    <register name="f10" access="saveFirst" />
+    <register name="f11" access="saveFirst" />
+    <register name="f12" access="saveFirst" />
+    <register name="f13" access="saveFirst" />
+    <register name="f14" access="saveFirst" />
+    <register name="f15" access="saveFirst" />
+    <register name="f16" access="saveFirst" />
+    <register name="f18" access="saveFirst" />
+    <register name="f19" access="saveFirst" />
+    <register name="f20" access="saveFirst" />
+    <register name="f21" access="saveFirst" />
+    <register name="f22" access="saveFirst" />
+    <register name="f23" access="saveFirst" />
+    <register name="f24" access="saveFirst" />
+    <register name="f25" access="saveFirst" />
+    <register name="f26" access="saveFirst" />
+    <register name="f27" access="saveFirst" />
+    <register name="f28" access="saveFirst" />
+    <register name="f29" access="saveFirst" />
+    <register name="f30" access="saveFirst" />
+    <register name="f31" access="saveFirst" />
+  </registry>
+
+  <memory>
+    <block address="16380" label="_size" allocateBytes="4">
+	<initialValues dataType="integers">10</initialValues>
+    </block>
+    <block address="16384" label="_numbers" allocateBytes="440">
+      <initialValues dataType="floats">5,10,2,5,9,7,5,2,3,5,9,-1.666666746139526,-1.333333492279053,9.333333015441895,3.333333253860474,-2,1.666666507720947,2.333333253860474,3.333333253860474,4,2.333333253860474,-2,0.238095283508301,-0.666666567325592,-1.619047880172729,1.380952239036560,6.857142925262451,4.047618865966797,4.952380657196045,6.809524059295654,5.285714149475098,1.952380776405334,6.857142925262451,1.884920835494995,-1.277777552604675,-18.484125137329102,4.265872955322266,21.369047164916992,7.543650627136230,5.289682388305664,10.158730506896973,6.511904716491699,6.789682388305664,13.369047164916992,3.578042507171631,-1.494708299636841,-25.156082153320312,13.617724418640137,56.948410034179688,23.707672119140625,28.443120956420898,41.629631042480469,25.853174209594727,24.943122863769531,38.615077972412109,-0.156131267547607,-12.474394798278809,-42.611198425292969,9.664729118347168,56.429561614990234,20.207153320312500,23.513652801513672,48.488285064697266,29.096229553222656,29.745796203613281,36.334323883056641,0.300217866897583,-9.752172470092773,-37.381038665771484,10.644887924194336,51.155754089355469,18.465089797973633,29.589050292968750,45.289871215820312,33.893848419189453,35.821193695068359,40.060512542724609,-2.961833953857422,-59.896423339843750,-196.820678710937500,33.580490112304688,230.275360107421875,76.485313415527344,86.311515808105469,203.094177246093750,120.553710937500000,129.233520507812500,153.143615722656250,-18.351047515869141,-84.815238952636719,-196.854064941406250,-1.051544189453125,130.433044433593750,27.406669616699219,31.416641235351562,153.749099731445312,97.199783325195312,111.338333129882812,94.386230468750000,-13.032920837402344,-144.391845703125000,-424.913208007812500,75.344223022460938,518.112182617187500,170.188629150390625,197.273040771484375,458.012512207031250,261.291015625000000,271.078643798828125,339.873443603515625
+      </initialValues>
+    </block>
+    <block address="16384" label="_numbers" allocateBytes="0">
+      <requiredResults dataType="floats">5,10,2,5,9,7,5,2,3,5,9,0,2,10,5,1,4,4,4,5,4,1,0,0,3.999999523162842,3.999999523162842,7,5.999999523162842,6.999999523162842,9,8,3.999999523162842,7,0,0,0,8.999998092651367,9.999993324279785,5.999996185302734,2.999996185302734,5.999993324279785,5.999994277954102,8.999998092651367,1.999994277954102,0,0,0,0,9.000001907348633,1.000002861022949,8,10.000001907348633,2.000000953674316,6.999997138977051,4.000003814697266,0,0,0,0,0,1.999994635581970,2.999992370605469,9.999994277954102,6.999990463256836,9.000007629394531,2.999986886978149,0,0,0,0,0,0,8.999998092651367,1.999984741210938,7.999998569488525,5.999985694885254,8.999996185302734,0,0,0,0,0,0,0,4.999956130981445,5.999979019165039,6.999922752380371,9.999996185302734,0,0,0,0,0,0,0,0,3.999893188476562,6.999953269958496,0.999798774719238,0,0,0,0,0,0,0,0,0,0.999949932098389,9.000247001647949
+</requiredResults>
+    </block>
+  </memory>
+
+  <classification>
+    <milestone maxCycles="4500" successRate="1.0"/>
+    <milestone maxCycles="5000" successRate="0.83333"/>
+    <milestone maxCycles="5500" successRate="0.66666"/>
+    <milestone maxCycles="6500" successRate="0.5"/>
+    <milestone maxCycles="7500" successRate="0.33333"/>
+    <milestone maxCycles="15000" successRate="0.16666" kill="true"/>
+  </classification>
+
+</Configuration>
