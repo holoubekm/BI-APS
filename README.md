@@ -1,5 +1,6 @@
 # BI-APS Course v2014
-## CTU / ČVUT FIT
+## Architektury počítačových systémů
+### CTU / ČVUT FIT
 
 ### Lecture_3
 This folder contains improved version of assemly for DLX simulator originally from the 3rd lecture. Task was to eliminate data hazard in the pipeline and perform loop unrolling on the code.
